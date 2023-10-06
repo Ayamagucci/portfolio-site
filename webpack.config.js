@@ -7,7 +7,7 @@ module.exports = {
   entry: './client/index.jsx',
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'dist') // output directory
+    path: path.resolve(__dirname, 'dist') // output directory
   },
   resolve: {
     extensions: [ '.js', '.jsx' ]
@@ -27,7 +27,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(), // clean 'dist' before each build
+    // new CleanWebpackPlugin(), // clean 'dist' before each build
     new HtmlWebpackPlugin({
       template: './client/index.html' // path to HTML template
     })
