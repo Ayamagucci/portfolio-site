@@ -3,19 +3,7 @@ import { AppBar, Toolbar, Button, Switch, Box, Typography } from '@mui/material'
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
 
-export default function Nav({ darkMode, toggleDarkMode }) {
-
-  // elevate AppBar on scroll
-  const [ elevation, setElevation ] = useState(0);
-
-  const handleScroll = () => {
-    // update elevation based on scroll position
-    if (window.scrollY > 0) {
-      setElevation(4);
-    } else {
-      setElevation(0);
-    }
-  };
+export default function Nav({ elevation, darkMode, toggleDarkMode }) {
 
   const scrollToSection = (sectionID) => {
     const elem = document.getElementById(sectionID);
@@ -24,15 +12,6 @@ export default function Nav({ darkMode, toggleDarkMode }) {
       elem.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    // add scroll event when component mounts
-    window.addEventListener("scroll", handleScroll);
-
-    // remove scroll when component unmounts
-    return () => window.removeEventListener("scroll", handleScroll);
-
-  }, []);
 
   return (
     <AppBar

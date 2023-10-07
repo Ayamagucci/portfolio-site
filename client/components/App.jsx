@@ -1,5 +1,6 @@
-import React from 'react';
-import { Container, Box, Typography } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Container, Box, Typography, Fab, Zoom } from '@mui/material';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useTheme } from '@mui/material/styles';
 import Nav from './Nav';
 import About from './About';
@@ -8,7 +9,41 @@ import Contact from './Contact';
 
 export default function App({ darkMode, toggleDarkMode }) {
 
-  const theme = useTheme();
+  // elevate AppBar & display FAB on scroll
+  const [ elevation, setElevation ] = useState(0);
+  const [ fabScroll, setFabScroll ] = useState(false);
+
+  const handleScroll = () => {
+    const { scrollY } = window;
+
+    // update elevation
+    if (scrollY > 0) {
+      setElevation(4);
+    } else {
+      setElevation(0);
+    }
+
+    // render FAB
+    if (scrollY > 100) {
+      setFabScroll(true);
+    } else {
+      setFabScroll(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  };
+
+  useEffect(() => {
+    // add scroll event when component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // remove scroll when component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    };
+  }, []);
 
   const centerStyle = {
     display: "flex",
@@ -20,8 +55,8 @@ export default function App({ darkMode, toggleDarkMode }) {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ backgroundColor: theme.palette.background.default }}>
-      <Nav darkMode={ darkMode } toggleDarkMode={ toggleDarkMode } />
+    <Container maxWidth="xl" sx={{ backgroundColor: useTheme().palette.background.default }}>
+      <Nav elevation={ elevation } darkMode={ darkMode } toggleDarkMode={ toggleDarkMode } />
 
       <Box sx={ centerStyle }>
         <Typography variant="h1">
@@ -32,6 +67,23 @@ export default function App({ darkMode, toggleDarkMode }) {
       <About centerStyle={ centerStyle } />
       <Projects centerStyle={ centerStyle } />
       <Contact centerStyle={ centerStyle } />
+
+      { elevation && (
+        <Zoom in={ fabScroll }>
+          <Fab onClick={ scrollToTop }
+            sx={{
+              position: "fixed",
+              bottom: "3.5rem",
+              right: "3.5rem",
+              zIndex: 1000
+            }}
+            elevation={ elevation }
+            color="primary"
+          >
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </Zoom>
+      ) }
     </Container>
   );
 }
