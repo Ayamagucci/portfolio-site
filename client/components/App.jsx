@@ -6,6 +6,7 @@ import Nav from './Nav';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
+import projectData from '../bio/projectData';
 
 export default function App({ darkMode, toggleDarkMode }) {
 
@@ -65,7 +66,7 @@ export default function App({ darkMode, toggleDarkMode }) {
       </Box>
 
       <About centerStyle={ centerStyle } />
-      <Projects centerStyle={ centerStyle } />
+      <Projects projectData={ projectData } centerStyle={ centerStyle } />
       <Contact centerStyle={ centerStyle } />
 
       { elevation && (

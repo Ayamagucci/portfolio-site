@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Box, Grid, Typography, Fab, Tooltip, Paper } from '@mui/material';
 import FastRewindIcon from '@mui/icons-material/FastRewind';
 import FastForwardIcon from '@mui/icons-material/FastForward';
-import projectData from '../bio/projectData';
 import ImageModal from './ImageModal';
 
-export default function Projects({ centerStyle }) {
+export default function Projects({ projectData, centerStyle }) {
 
   const [ projectIndex, setProjectIndex ] = useState(0);
   const [ open, setOpen ] = useState(false);

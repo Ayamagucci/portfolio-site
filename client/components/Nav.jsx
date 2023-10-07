@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { AppBar, Toolbar, Button, Switch, Box, Typography } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
@@ -17,20 +17,36 @@ export default function Nav({ elevation, darkMode, toggleDarkMode }) {
     <AppBar
       position="sticky"
       elevation={ elevation }
-      sx={{/* top: 0, zIndex: 1000, */ borderRadius: "7px" }}
+      sx={{ borderRadius: "7px" }}
     >
       <Toolbar sx={{ justifyContent:"space-between" }}>
         <Box>
-          <Button onClick={ () => scrollToSection('about') } color="inherit">
+          <Button
+            onClick={ () => scrollToSection('about') }
+            color="inherit"
+            aria-label="About"
+          >
             About
           </Button>
-          <Button onClick={ () => scrollToSection('projects') } color="inherit">
+          <Button
+            onClick={ () => scrollToSection('projects') }
+            color="inherit"
+            aria-label="Projects"
+          >
             Projects
           </Button>
-          <Button onClick={ () => scrollToSection('skills') } color="inherit">
+          <Button
+            onClick={ () => scrollToSection('skills') }
+            color="inherit"
+            aria-label="Skills"
+          >
             Skills
           </Button>
-          <Button onClick={ () => scrollToSection('contact') } color="inherit">
+          <Button
+            onClick={ () => scrollToSection('contact') }
+            color="inherit"
+            aria-label="Contact"
+          >
             Contact
           </Button>
         </Box>
