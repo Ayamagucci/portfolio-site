@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { Box, Grid, Typography, IconButton, Modal, Paper } from '@mui/material';
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import projectData from '../projectData';
+import React, { useState, useEffect } from 'react';
+import { Box, Grid, Typography, Fab, Tooltip, Paper } from '@mui/material';
+import FastRewindIcon from '@mui/icons-material/FastRewind';
+import FastForwardIcon from '@mui/icons-material/FastForward';
+import projectData from '../bio/projectData';
+import ImageModal from './ImageModal';
 
 export default function Projects() {
 
   const [ projectIndex, setProjectIndex ] = useState(0);
   const [ open, setOpen ] = useState(false);
   const [ imageIndex, setImageIndex ] = useState(0);
+
+  // const [ isPlaying, setPlaying ] = useState(false);
 
   const currentProject = projectData[projectIndex];
 
@@ -38,35 +41,82 @@ export default function Projects() {
     setOpen(false);
   };
 
-  return (
-    <Box>
-      <Typography variant="h3" align="center" gutterBottom>
-        My Projects
-      </Typography>
+  /* useEffect starts timer when isPlaying changes
+  useEffect(() => {
+    let timer;
 
-      <Paper>
-        <Box p={ 2 }>
-          <Typography variant="h5" gutterBottom>
-            { currentProject.title }
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
+    if (isPlaying) {
+      timer = setInterval(nextImage, 30000);
+    } else {
+      clearInterval(timer);
+    }
+    return () => clearInterval(timer);
+
+  }, [ isPlaying, currentProject ]);
+  */
+
+  return (
+    <Box id="projects" sx={{ marginY: "20rem" }}>
+      <Box sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        // mb: "1.5rem"
+        }}
+      >
+        <Tooltip title="Previous" placement="left">
+          <Fab
+            color="primary"
+            size="small"
+            onClick={ prevProject }
+          >
+            <FastRewindIcon />
+          </Fab>
+        </Tooltip>
+
+        <Typography
+          variant="h2"
+          sx={{ marginX: "1rem" }}
+          // gutterBottom
+        >
+          My Projects
+        </Typography>
+
+        <Tooltip title="Next" placement="right">
+          <Fab
+            color="primary"
+            size="small"
+            onClick={ nextProject }
+          >
+            <FastForwardIcon />
+          </Fab>
+        </Tooltip>
+      </Box>
+
+      <Paper elevation={ 3 }>
+        <Box p={ 2 } marginY="2rem">
+          <Box
+            sx={{
+              display: "flex",
+              // justifyContent: "space-between",
+              alignItems: "center",
+              ml: "1rem",
+              mb: "0.5rem"
+            }}
+          >
+            <Typography variant="h5" sx={{ mr: "2.5rem" }}>
+              <strong>{ currentProject.title }</strong>
+            </Typography>
+            <Typography variant="subtitle2" color="textSecondary">
+              { currentProject.year }
+            </Typography>
+          </Box>
+          <Typography sx={{ mb: "0.5rem" }} variant="subtitle1" color="textSecondary">
             { currentProject.description }
           </Typography>
-          <Typography variant="subtitle2" color="textSecondary" gutterBottom>
-            { currentProject.year }
-          </Typography>
           <Typography variant="body2" color="textSecondary">
-            Technical Skills: { currentProject.skills }
+            <strong>Technical Skills:</strong> { currentProject.skills }
           </Typography>
-
-          <Box sx={{ textAlign: 'center', marginTop: '16px' }}>
-            <IconButton onClick={ prevProject }>
-              <NavigateBeforeIcon />
-            </IconButton>
-            <IconButton onClick={ nextProject }>
-              <NavigateNextIcon />
-            </IconButton>
-          </Box>
         </Box>
 
         <Grid container spacing={ 2 }>
@@ -76,37 +126,18 @@ export default function Projects() {
                 <img
                   src={ gif }
                   alt={ currentProject.title }
-                  style={{ width: '100%', cursor: 'pointer' }}
+                  style={{ width: "100%", cursor: "pointer" }}
                 />
               </Box>
             </Grid>
           )) }
         </Grid>
 
-        <Modal open={ open } onClose={ closeImage }>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)'
-            }}
-          >
-            <img
-              src={ currentProject.gifs[imageIndex] }
-              alt={ currentProject.title }
-              style={{ maxWidth: '100%', maxHeight: '80vh' }}
-            />
-            <Box sx={{ textAlign: 'center', marginTop: '16px' }}>
-              <IconButton onClick={ prevImage }>
-                <NavigateBeforeIcon />
-              </IconButton>
-              <IconButton onClick={ nextImage }>
-                <NavigateNextIcon />
-              </IconButton>
-            </Box>
-          </Box>
-        </Modal>
+        <ImageModal
+          open={ open }
+          handleClose={ closeImage }
+          imageURL={ currentProject.gifs[imageIndex] }
+        />
       </Paper>
     </Box>
   );

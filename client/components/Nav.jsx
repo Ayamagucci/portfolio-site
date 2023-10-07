@@ -1,23 +1,78 @@
-import React from 'react';
-import { AppBar, Toolbar, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { AppBar, Toolbar, Button, IconButton } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
+import { Link } from 'react-scroll';
 
-export default function Nav() {
+export default function Nav({ darkMode, setDarkMode }) {
+
+  const scrollToSection = (sectionID) => {
+    const elem = document.getElementById(sectionID);
+
+    if (elem) {
+      elem.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <AppBar position="static">
+    <AppBar position="sticky" sx={{ top: 0, zIndex: 1000 }}>
       <Toolbar>
-        <Button component={ Link } to="/" color="inherit">
+        <Button onClick={ () => scrollToSection('about') } color="inherit">
           About
         </Button>
-        <Button component={ Link } to="/skills" color="inherit">
-          Skills
-        </Button>
-        <Button component={ Link } to="/projects" color="inherit">
+        <Button onClick={ () => scrollToSection('projects') } color="inherit">
           Projects
         </Button>
-        <Button component={ Link } to="/contacts" color="inherit">
-          Contacts
+        <Button onClick={ () => scrollToSection('skills') } color="inherit">
+          Skills
         </Button>
+        <Button onClick={ () => scrollToSection('contact') } color="inherit">
+          Contact
+        </Button>
+        {/* <Link
+          activeClass="active"
+          to="about"
+          spy={ true }
+          smooth={ true }
+          offset={ -70 }
+          duration={ 500 }
+          color="inherit"
+        >
+          About
+        </Link>
+        <Link
+          activeClass="active"
+          to="projects"
+          spy={ true }
+          smooth={ true }
+          offset={ -70 }
+          duration={ 500 }
+          color="inherit"
+          >
+          Projects
+        </Link>
+        <Link
+          activeClass="active"
+          to="skills"
+          spy={ true }
+          smooth={ true }
+          offset={ -70 }
+          duration={ 500 }
+          color="inherit"
+        >
+          Skills
+        </Link>
+        <Link
+          activeClass="active"
+          to="contact"
+          spy={ true }
+          smooth={ true }
+          offset={ -70 }
+          duration={ 500 }
+          color="inherit"
+        >
+          Contact
+        </Link> */}
       </Toolbar>
     </AppBar>
   );

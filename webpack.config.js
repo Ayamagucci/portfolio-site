@@ -27,7 +27,7 @@ module.exports = {
     ]
   },
   plugins: [
-    // new CleanWebpackPlugin(), // clean 'dist' before each build
+    new CleanWebpackPlugin(), // clean 'dist' before each build
     new HtmlWebpackPlugin({
       template: './client/index.html' // path to HTML template
     })
