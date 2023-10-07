@@ -75,7 +75,7 @@ export default function App({ darkMode, toggleDarkMode }) {
               position: "fixed",
               bottom: "3.5rem",
               right: "3.5rem",
-              zIndex: 1000
+              zIndex: 1000 // NOTE: elevation only controls shadow (illusion of stacking effect)
             }}
             elevation={ elevation }
             color="primary"
