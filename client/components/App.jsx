@@ -1,34 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Container, Box, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Nav from './Nav';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 
-export default function App() {
+export default function App({ darkMode, toggleDarkMode }) {
 
-  const [ darkMode, setDarkMode ] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-
-    // save preference to localStorage
-    localStorage.setItem('darkMode', !darkMode);
-  };
-
-  // load the preference when app starts
-  useEffect(() => {
-    const darkSettings = localStorage.getItem('darkMode');
-
-    if (darkSettings !== null) {
-      // NOTE: localStorage & sessionStorage store data as strings **
-      setDarkMode(darkSettings === 'true');
-    }
-  }, []);
+  const theme = useTheme();
 
   return (
-    <Container maxWidth="xl">
-      <Nav darkMode={ darkMode } setDarkMode={ setDarkMode } />
+    <Container maxWidth="xl" sx={{ backgroundColor: theme.palette.background.default }}>
+      <Nav darkMode={ darkMode } toggleDarkMode={ toggleDarkMode } />
 
       <Box sx={{
         display: "flex",
@@ -36,7 +20,7 @@ export default function App() {
         alignItems: "center",
         justifyContent: "center",
         minHeight: "80vh",
-        padding: "2rem",
+        padding: "2rem"
       }}
       >
         <Typography variant="h1">

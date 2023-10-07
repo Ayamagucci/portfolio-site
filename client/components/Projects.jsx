@@ -61,7 +61,6 @@ export default function Projects() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        // mb: "1.5rem"
         }}
       >
         <Tooltip title="Previous" placement="left">
@@ -77,7 +76,6 @@ export default function Projects() {
         <Typography
           variant="h2"
           sx={{ marginX: "1rem" }}
-          // gutterBottom
         >
           My Projects
         </Typography>
@@ -95,13 +93,11 @@ export default function Projects() {
 
       <Paper elevation={ 3 }>
         <Box p={ 2 } marginY="2rem">
-          <Box
-            sx={{
-              display: "flex",
-              // justifyContent: "space-between",
-              alignItems: "center",
-              ml: "1rem",
-              mb: "0.5rem"
+          <Box sx={{
+            display: "flex",
+            alignItems: "center",
+            ml: "1rem",
+            mb: "0.5rem"
             }}
           >
             <Typography variant="h5" sx={{ mr: "2.5rem" }}>
