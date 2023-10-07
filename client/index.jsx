@@ -13,7 +13,7 @@ const Root = () => {
     setDarkMode(!darkMode);
 
     // save preference to localStorage
-    localStorage.setItem('darkMode', darkMode);
+    localStorage.setItem('darkMode', !darkMode);
   };
 
   // load the preference when app starts

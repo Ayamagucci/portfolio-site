@@ -5,7 +5,7 @@ import FastForwardIcon from '@mui/icons-material/FastForward';
 import projectData from '../bio/projectData';
 import ImageModal from './ImageModal';
 
-export default function Projects() {
+export default function Projects({ centerStyle }) {
 
   const [ projectIndex, setProjectIndex ] = useState(0);
   const [ open, setOpen ] = useState(false);
@@ -56,11 +56,12 @@ export default function Projects() {
   */
 
   return (
-    <Box id="projects" sx={{ marginY: "20rem" }}>
+    <Box id="projects" sx={{ ...centerStyle, marginY: "17.5rem" }}>
       <Box sx={{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        mb: "2.5rem"
         }}
       >
         <Tooltip title="Previous" placement="left">
@@ -92,12 +93,12 @@ export default function Projects() {
       </Box>
 
       <Paper elevation={ 3 }>
-        <Box p={ 2 } marginY="2rem">
+        <Box p={ 2 } /* marginY="2rem" */>
           <Box sx={{
             display: "flex",
             alignItems: "center",
-            ml: "1rem",
-            mb: "0.5rem"
+            ml: "0.5rem",
+            mb: "1rem"
             }}
           >
             <Typography variant="h5" sx={{ mr: "2.5rem" }}>
@@ -107,7 +108,7 @@ export default function Projects() {
               { currentProject.year }
             </Typography>
           </Box>
-          <Typography sx={{ mb: "0.5rem" }} variant="subtitle1" color="textSecondary">
+          <Typography sx={{ mb: "1rem" }} variant="subtitle1" color="textSecondary">
             { currentProject.description }
           </Typography>
           <Typography variant="body2" color="textSecondary">

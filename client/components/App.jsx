@@ -10,27 +10,28 @@ export default function App({ darkMode, toggleDarkMode }) {
 
   const theme = useTheme();
 
+  const centerStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: "80vh",
+    padding: "2rem"
+  };
+
   return (
     <Container maxWidth="xl" sx={{ backgroundColor: theme.palette.background.default }}>
       <Nav darkMode={ darkMode } toggleDarkMode={ toggleDarkMode } />
 
-      <Box sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "80vh",
-        padding: "2rem"
-      }}
-      >
+      <Box sx={ centerStyle }>
         <Typography variant="h1">
           <strong>Hi, I'm Alex!</strong>
         </Typography>
       </Box>
 
-      <About />
-      <Projects />
-      <Contact />
+      <About centerStyle={ centerStyle } />
+      <Projects centerStyle={ centerStyle } />
+      <Contact centerStyle={ centerStyle } />
     </Container>
   );
 }
