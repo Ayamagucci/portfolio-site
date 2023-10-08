@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Dialog, DialogTitle, DialogContent, IconButton, CircularProgress, Fade } from '@mui/material';
+import React, { useState } from 'react';
+import { Dialog, DialogTitle, DialogContent, IconButton, CircularProgress } from '@mui/material';
 import CloseIcon from'@mui/icons-material/Close';
 
 export default function ImageModal({ open, handleClose, imageURL }) {

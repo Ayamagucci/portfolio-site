@@ -3,6 +3,7 @@ import { Box, Typography, Paper } from '@mui/material';
 import skills from '../bio/skills';
 
 export default function About({ centerStyle }) {
+
   return (
     <Box id="about" sx={{ ...centerStyle, marginY: "17.5rem" }}>
       <Box sx={{
