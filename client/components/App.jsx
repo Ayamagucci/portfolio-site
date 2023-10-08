@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container, Box, Typography, Fab, Zoom } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useTheme } from '@mui/material/styles';
-import gsap from 'gsap';
+import { useSpring, animated } from 'react-spring';
+// import gsap from 'gsap';
 // import fade from '../animations/fade';
 import Nav from './Nav';
 import About from './About';
@@ -51,16 +52,14 @@ export default function App({ darkMode, toggleDarkMode }) {
   // animate fade on intro text
   const refIntroText = useRef(null);
 
-  const fade = (ref) => {
-    gsap.from(ref.current, {
-      opacity: 0, // initial opacity
-      duration: 3, // secs
-      ease: "power2.inOut" // easing function
-    });
-  };
+  const fadeEffect = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 2000 }
+  });
 
-  // call animation on intro text (ref) when component mounts
-  useEffect(() => fade(refIntroText), []);
+  // call animation when component mounts
+  // useEffect(() => fade(refIntroText), []); // <— gsap
 
   const centerStyle = {
     display: "flex",
@@ -75,11 +74,14 @@ export default function App({ darkMode, toggleDarkMode }) {
     <Container maxWidth="xl" sx={{ backgroundColor: useTheme().palette.background.default }}>
       <Nav elevation={ elevation } darkMode={ darkMode } toggleDarkMode={ toggleDarkMode } />
 
-      <Box sx={ centerStyle }>
-        <Typography variant="h1" ref={ refIntroText }>
-          <strong>Hi, I'm Alex!</strong>
-        </Typography>
-      </Box>
+      {/* wrap animated component w/ animated.div (react-spring) */}
+      <animated.div style={ fadeEffect }>
+        <Box sx={ centerStyle }>
+          <Typography variant="h1" ref={ refIntroText }>
+            <strong>Hi, I'm Alex!</strong>
+          </Typography>
+        </Box>
+      </animated.div>
 
       <About centerStyle={ centerStyle } />
       <Projects projectData={ projectData } centerStyle={ centerStyle } />
