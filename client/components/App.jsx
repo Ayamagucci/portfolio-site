@@ -6,6 +6,7 @@ import { useSpring, animated } from 'react-spring';
 // import gsap from 'gsap';
 // import fade from '../animations/fade';
 import Nav from './Nav';
+import Resume from './Resume';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
@@ -49,14 +50,14 @@ export default function App({ darkMode, toggleDarkMode }) {
     };
   }, []);
 
-  // animate fade on intro text
-  const refIntroText = useRef(null);
-
   const fadeEffect = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
-    config: { duration: 2000 }
+    config: { duration: 2250 }
   });
+
+  // animate fade on intro text
+  // const refIntroText = useRef(null);
 
   // call animation when component mounts
   // useEffect(() => fade(refIntroText), []); // <— gsap
@@ -77,11 +78,13 @@ export default function App({ darkMode, toggleDarkMode }) {
       {/* wrap animated component w/ animated.div (react-spring) */}
       <animated.div style={ fadeEffect }>
         <Box sx={ centerStyle }>
-          <Typography variant="h1" ref={ refIntroText }>
+          <Typography variant="h1" /* ref={ refIntroText } */>
             <strong>Hi, I'm Alex!</strong>
           </Typography>
+          <Resume />
         </Box>
       </animated.div>
+
 
       <About centerStyle={ centerStyle } />
       <Projects projectData={ projectData } centerStyle={ centerStyle } />

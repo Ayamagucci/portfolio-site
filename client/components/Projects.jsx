@@ -110,7 +110,7 @@ export default function Projects({ projectData, centerStyle }) {
           <Typography sx={{ mb: "1rem" }} variant="subtitle1" color="textSecondary">
             { currentProject.description }
           </Typography>
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="textSecondary" gutterBottom>
             <strong>Technical Skills:</strong> { currentProject.skills }
           </Typography>
         </Box>

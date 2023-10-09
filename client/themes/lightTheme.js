@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 
-// MUI recommended colors: https://m2.material.io/design/color/dark-theme.html
 const lightTheme = createTheme({
   palette: {
     mode: "light",
