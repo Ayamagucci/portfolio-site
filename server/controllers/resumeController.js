@@ -1,4 +1,4 @@
-const express = require('express');
+// const express = require('express');
 const path = require('path');
 const Download = require('../models/Download');
 
@@ -13,23 +13,16 @@ exports.serveIndex = async function(req, res) {
 
 exports.serveResume = async function(req, res) {
   try {
-    // update download count
+    // increm download count
     await Download.findOneAndUpdate({}, { $inc: { downloads: 1 } }, { upsert: true });
 
-    // const filePath = path.join(__dirname, '../../', 'RESUME.pdf');
-    const filePath = path.join(__dirname, '../../', 'TEST.jpeg');
-
+    const filePath = path.join(__dirname, '../..', 'RESUME.pdf');
     console.log(`filePath: ${ filePath }`);
+
     await res.sendFile(filePath);
+    // await res.download(filePath);
 
-    // res.download(filePath, 'RESUME-Alexander_Yamaguchi.pdf', (err) => {
-    //   if (err) {
-    //     console.error('Error serving resumé:', err);
-    //     res.status(500).send('Error serving resumé.');
-    //   }
-    // });
-
-    res.status(200).send(`filePath: ${ filePath }`);
+    res.status(200).end();
 
   } catch(err) {
     res.status(500).send(`Error serving resumé: ${ err }`);

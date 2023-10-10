@@ -17,8 +17,7 @@ app.use(express.static(path.join(__dirname, '../../dist'))); // serves static as
 */
 app.get('/*', serveIndex);
 
-// serve resumé
-app.get('/resume', serveResume);
+app.get('/resume', serveResume); // NOTE: not working! **
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening at PORT: ${ PORT }`);

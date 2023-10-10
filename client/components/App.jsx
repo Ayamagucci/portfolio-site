@@ -2,15 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container, Box, Typography, Fab, Zoom } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useTheme } from '@mui/material/styles';
-import { useSpring, animated } from 'react-spring';
-// import gsap from 'gsap';
-// import fade from '../animations/fade';
 import Nav from './Nav';
 import Resume from './Resume';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 import projectData from '../bio/projectData';
+import { useSpring, animated } from 'react-spring';
+import TrailingDots from '../animations/TrailingDots';
+// import gsap from 'gsap';
+// import fade from '../animations/fade';
 
 export default function App({ darkMode, toggleDarkMode }) {
 
@@ -37,16 +38,16 @@ export default function App({ darkMode, toggleDarkMode }) {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   };
 
   useEffect(() => {
     // add scroll event when component mounts
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     // remove scroll when component unmounts
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener('scroll', handleScroll)
     };
   }, []);
 
@@ -56,51 +57,57 @@ export default function App({ darkMode, toggleDarkMode }) {
     config: { duration: 2250 }
   });
 
+  /*
   // animate fade on intro text
-  // const refIntroText = useRef(null);
+  const refIntroText = useRef(null);
 
   // call animation when component mounts
-  // useEffect(() => fade(refIntroText), []); // <— gsap
+  useEffect(() => fade(refIntroText), []); // <— gsap
+  */
 
   const centerStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    minHeight: "80vh",
-    padding: "2rem"
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '80vh',
+    padding: '2rem'
   };
 
   return (
-    <Container maxWidth="xl" sx={{ backgroundColor: useTheme().palette.background.default }}>
+    <Container maxWidth='xl' sx={{ backgroundColor: useTheme().palette.background.default }}>
       <Nav elevation={ elevation } darkMode={ darkMode } toggleDarkMode={ toggleDarkMode } />
 
       {/* wrap animated component w/ animated.div (react-spring) */}
       <animated.div style={ fadeEffect }>
         <Box sx={ centerStyle }>
-          <Typography variant="h1" /* ref={ refIntroText } */>
+          <Typography variant='h1' /* ref={ refIntroText } */>
             <strong>Hi, I'm Alex!</strong>
           </Typography>
           <Resume />
         </Box>
       </animated.div>
-
+      <TrailingDots />
 
       <About centerStyle={ centerStyle } />
+      <TrailingDots />
+
       <Projects projectData={ projectData } centerStyle={ centerStyle } />
+      <TrailingDots />
+
       <Contact centerStyle={ centerStyle } />
 
       { elevation && (
         <Zoom in={ fabScroll }>
           <Fab onClick={ scrollToTop }
             sx={{
-              position: "fixed",
-              bottom: "3.5rem",
-              right: "3.5rem",
+              position: 'fixed',
+              bottom: '3.5rem',
+              right: '3.5rem',
               zIndex: 1000 // NOTE: elevation only controls shadow (illusion of stacking effect)
             }}
             elevation={ elevation }
-            color="primary"
+            color='primary'
           >
             <KeyboardArrowUpIcon />
           </Fab>

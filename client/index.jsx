@@ -5,7 +5,7 @@ import App from './components/App';
 import darkTheme from './themes/darkTheme';
 import lightTheme from './themes/lightTheme';
 
-const Root = () => {
+function Root() {
 
   const [ darkMode, setDarkMode ] = useState(false);
 

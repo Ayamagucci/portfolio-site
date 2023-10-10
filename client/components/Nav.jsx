@@ -10,51 +10,51 @@ export default function Nav({ elevation, darkMode, toggleDarkMode }) {
     const elem = document.getElementById(sectionID);
 
     if (elem) {
-      elem.scrollIntoView({ behavior: "smooth" });
+      elem.scrollIntoView({ behavior: "'smooth'" });
     }
   };
 
   return (
     <AppBar
-      position="sticky"
+      position='sticky'
       elevation={ elevation }
-      sx={{ borderRadius: "7px" }}
+      sx={{ borderRadius: '7px' }}
     >
-      <Toolbar sx={{ justifyContent:"space-between" }}>
+      <Toolbar sx={{ justifyContent:'space-between' }}>
         <Box>
           <Button
             onClick={ () => scrollToSection('about') }
-            color="inherit"
-            aria-label="About"
+            color='inherit'
+            aria-label='About'
           >
             About
           </Button>
           <Button
             onClick={ () => scrollToSection('projects') }
-            color="inherit"
-            aria-label="Projects"
+            color='inherit'
+            aria-label='Projects'
           >
             Projects
           </Button>
           <Button
             onClick={ () => scrollToSection('skills') }
-            color="inherit"
-            aria-label="Skills"
+            color='inherit'
+            aria-label='Skills'
           >
             Skills
           </Button>
           <Button
             onClick={ () => scrollToSection('contact') }
-            color="inherit"
-            aria-label="Contact"
+            color='inherit'
+            aria-label='Contact'
           >
             Contact
           </Button>
         </Box>
 
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography variant="body2" sx={{ mr: "0.5rem" }}>
-            { darkMode ? "Dark" : "Light" }
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography variant='body2' sx={{ mr: '0.5rem' }}>
+            { darkMode ? 'Dark' : 'Light' }
           </Typography>
           <Switch checked={ darkMode } onChange={ toggleDarkMode } />
           { darkMode ? <Brightness4OutlinedIcon /> : <Brightness4Icon /> }

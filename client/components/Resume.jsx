@@ -20,15 +20,15 @@ export default function Resume() {
     <Fab
       onClick={ handleDownload }
       sx={{
-        position: "absolute",
-        bottom: "42%",
+        position: 'absolute',
+        bottom: '42%',
         // center horizontally
-        left: "50%",
-        transform: "translateX(-50%)",
+        left: '50%',
+        transform: 'translateX(-50%)',
       }}
-      variant="extended"
-      color="primary"
-      aria-label="Download Resumé"
+      variant='extended'
+      color='primary'
+      aria-label='Download Resumé'
     >
       <DescriptionIcon /> Download My Resumé
     </Fab>

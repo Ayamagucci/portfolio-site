@@ -55,18 +55,18 @@ export default function Projects({ projectData, centerStyle }) {
   */
 
   return (
-    <Box id="projects" sx={{ ...centerStyle, marginY: "17.5rem" }}>
+    <Box id='projects' sx={{ ...centerStyle, marginY: '17.5rem' }}>
       <Box sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        mb: "2.5rem"
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        mb: '2.5rem'
         }}
       >
-        <Tooltip title="Previous" placement="left">
+        <Tooltip title='Previous' placement='left'>
           <Fab
-            color="primary"
-            size="small"
+            color='primary'
+            size='small'
             onClick={ prevProject }
           >
             <FastRewindIcon />
@@ -74,16 +74,16 @@ export default function Projects({ projectData, centerStyle }) {
         </Tooltip>
 
         <Typography
-          variant="h2"
-          sx={{ marginX: "1rem" }}
+          variant='h2'
+          sx={{ marginX: '1rem' }}
         >
           My Projects
         </Typography>
 
-        <Tooltip title="Next" placement="right">
+        <Tooltip title='Next' placement='right'>
           <Fab
-            color="primary"
-            size="small"
+            color='primary'
+            size='small'
             onClick={ nextProject }
           >
             <FastForwardIcon />
@@ -94,23 +94,23 @@ export default function Projects({ projectData, centerStyle }) {
       <Paper elevation={ 3 }>
         <Box p={ 2 } /* marginY="2rem" */>
           <Box sx={{
-            display: "flex",
-            alignItems: "center",
-            ml: "0.5rem",
-            mb: "1rem"
+            display: 'flex',
+            alignItems: 'center',
+            ml: '0.5rem',
+            mb: '1rem'
             }}
           >
-            <Typography variant="h5" sx={{ mr: "2.5rem" }}>
+            <Typography variant='h5' sx={{ mr: '2.5rem' }}>
               <strong>{ currentProject.title }</strong>
             </Typography>
-            <Typography variant="subtitle2" color="textSecondary">
+            <Typography variant='subtitle2' color='textSecondary'>
               { currentProject.year }
             </Typography>
           </Box>
-          <Typography sx={{ mb: "1rem" }} variant="subtitle1" color="textSecondary">
+          <Typography sx={{ mb: '1rem' }} variant='subtitle1' color='textSecondary'>
             { currentProject.description }
           </Typography>
-          <Typography variant="body2" color="textSecondary" gutterBottom>
+          <Typography variant='body2' color='textSecondary' gutterBottom>
             <strong>Technical Skills:</strong> { currentProject.skills }
           </Typography>
         </Box>
@@ -122,7 +122,7 @@ export default function Projects({ projectData, centerStyle }) {
                 <img
                   src={ gif }
                   alt={ currentProject.title }
-                  style={{ width: "100%", cursor: "pointer" }}
+                  style={{ width: '100%', cursor: 'pointer' }}
                 />
               </Box>
             </Grid>

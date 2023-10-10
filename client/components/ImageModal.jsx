@@ -14,10 +14,10 @@ export default function ImageModal({ open, handleClose, imageURL }) {
     <Dialog open={ open } onClose={ handleClose }>
       <DialogTitle>
         <IconButton
-          edge="end"
+          edge='end'
           onClick={ handleClose }
           sx={{ position: 'absolute', top: 1, right: 8 }}
-          aria-label="Close"
+          aria-label='Close'
         >
           <CloseIcon />
         </IconButton>
@@ -29,7 +29,7 @@ export default function ImageModal({ open, handleClose, imageURL }) {
         ) : (
           <img
             src={ imageURL }
-            alt="Project"
+            alt='Project'
             style={{
               display: 'block',
               maxWidth: '100%',
