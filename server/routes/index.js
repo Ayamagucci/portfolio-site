@@ -3,6 +3,7 @@ const { DB_NAME, PORT } = process.env;
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
+const db = require('../models/index');
 const { serveIndex, serveResume } = require('../controllers/resumeController');
 
 const app = express();

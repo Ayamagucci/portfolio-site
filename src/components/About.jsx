@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Paper } from '@mui/material';
-import skills from '../bio/skills';
+import skills from '../data/skills';
 
 export default function About({ centerStyle }) {
 

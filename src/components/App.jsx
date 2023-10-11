@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, Box, Typography, Fab, Zoom } from '@mui/material';
+import { Container, Box, Typography, Fab, Tooltip, Zoom } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useTheme } from '@mui/material/styles';
 import Nav from './Nav';
@@ -7,11 +7,8 @@ import Resume from './Resume';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
-import projectData from '../bio/projectData';
 import { useSpring, animated } from 'react-spring';
-import TrailingDots from '../animations/TrailingDots';
-// import gsap from 'gsap';
-// import fade from '../animations/fade';
+import ScrollIndicator from './ScrollIndicator';
 
 export default function App({ darkMode, toggleDarkMode }) {
 
@@ -62,7 +59,7 @@ export default function App({ darkMode, toggleDarkMode }) {
   const refIntroText = useRef(null);
 
   // call animation when component mounts
-  useEffect(() => fade(refIntroText), []); // <— gsap
+  useEffect(() => Fade(refIntroText), []); // <— gsap
   */
 
   const centerStyle = {
@@ -87,30 +84,32 @@ export default function App({ darkMode, toggleDarkMode }) {
           <Resume />
         </Box>
       </animated.div>
-      <TrailingDots />
+      <ScrollIndicator />
 
       <About centerStyle={ centerStyle } />
-      <TrailingDots />
+      <ScrollIndicator />
 
-      <Projects projectData={ projectData } centerStyle={ centerStyle } />
-      <TrailingDots />
+      <Projects centerStyle={ centerStyle } />
+      <ScrollIndicator />
 
       <Contact centerStyle={ centerStyle } />
 
       { elevation && (
         <Zoom in={ fabScroll }>
-          <Fab onClick={ scrollToTop }
-            sx={{
-              position: 'fixed',
-              bottom: '3.5rem',
-              right: '3.5rem',
-              zIndex: 1000 // NOTE: elevation only controls shadow (illusion of stacking effect)
-            }}
-            elevation={ elevation }
-            color='primary'
-          >
-            <KeyboardArrowUpIcon />
-          </Fab>
+          <Tooltip title='Scroll back to top' placement='top'>
+            <Fab onClick={ scrollToTop }
+              sx={{
+                position: 'fixed',
+                bottom: '3.5rem',
+                right: '3.5rem',
+                zIndex: 1000 // NOTE: elevation only controls shadow (illusion of stacking effect)
+              }}
+              elevation={ elevation }
+              color='primary'
+            >
+              <KeyboardArrowUpIcon />
+            </Fab>
+          </Tooltip>
         </Zoom>
       ) }
     </Container>
