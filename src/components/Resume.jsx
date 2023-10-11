@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fab, Zoom } from '@mui/material';
+import { Fab } from '@mui/material';
 import DescriptionIcon from '@mui/icons-material/Description';
 import { animated } from 'react-spring';
 
@@ -18,7 +18,6 @@ export default function Resume({ fadeEffect, pulseEffect }) {
   };
 
   return (
-    // <Zoom in={ true } /* style={{ transitionDelay: '500ms' }} */>
     <animated.div style={ pulseEffect }>
       <animated.div style={ fadeEffect }>
         <Fab onClick={ handleDownload }
@@ -36,6 +35,5 @@ export default function Resume({ fadeEffect, pulseEffect }) {
         </Fab>
       </animated.div>
     </animated.div>
-    // </Zoom>
   );
 }

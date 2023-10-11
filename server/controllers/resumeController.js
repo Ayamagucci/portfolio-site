@@ -16,9 +16,11 @@ exports.serveResume = async function(req, res) {
     // await Download.findOneAndUpdate({}, { $inc: { downloads: 1 } }, { upsert: true });
 
     // const filePath = path.join(__dirname, '../..', 'RESUME.pdf');
-    const filePath = path.join(__dirname, '../../dist', 'RESUME.pdf');
+    // await res.download(filePath);
 
-    await res.download(filePath);
+    const filePath = path.join(__dirname, '../../public', 'RESUME.pdf');
+    await res.sendFile(filePath);
+
     console.log(`filePath: ${ filePath }`);
 
     res.status(200).end();

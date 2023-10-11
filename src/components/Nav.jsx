@@ -20,6 +20,7 @@ export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMo
           >
             About
           </Button>
+
           <Button
             onClick={ () => scrollToSection('projects') }
             color='inherit'
@@ -27,13 +28,15 @@ export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMo
           >
             Projects
           </Button>
-          <Button
+
+          {/* <Button
             onClick={ () => scrollToSection('skills') }
             color='inherit'
             aria-label='Skills'
           >
             Skills
-          </Button>
+          </Button> */}
+
           <Button
             onClick={ () => scrollToSection('contact') }
             color='inherit'

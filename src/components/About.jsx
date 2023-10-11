@@ -35,13 +35,13 @@ export default function About({ centerStyle }) {
           <br /><br />
 
           <Typography variant='body1'>
-            Beyond technical expertise, my background as a prospective physician has honed my logical and reasoning capabilities, which I now apply to devise creative solutions for intricate coding challenges. My achievements as a Summa Cum Laude graduate and my top 5% nationwide ranking in the "Critical Analysis and Reasoning Skills" section of the MCAT serve as testaments to my unwavering work ethic and intellectual capacity. Moreover, I have consistently demonstrated strong interpersonal skills and documentation ability, refined during my tenure as a medical scribe on multiple care teams. This experience has enabled me to seamlessly integrate into diverse team dynamics, a skill set indispensable for any capable engineer.
+            While my path into software may differ from the conventional route, it has endowed me with a unique skill set that could prove invaluable to cross-functional teams. My previous journey as a prospective physician greatly honed my logical reasoning skills, enabling me to offer fresh insights and approach problems from innovative angles. My achievements as a Summa Cum Laude graduate & my top 5% nationwide ranking in the "Critical Analysis & Reasoning Skills" section of the MCAT serve as testaments to my unwavering work ethic & intellectual capacity — attributes that seamlessly transition into the realm of software engineering.
             <br /><br />
 
-            But I'm not all business—I'm also a fun-loving, charismatic team player who knows how to keep things light. After all, life’s too short to spend your working hours around people you don’t enjoy, so why not make your workspace a little brighter?
+            But I'm not all business — I'm also a fun-loving, charismatic team player who knows how to keep things light. After all, life’s too short to spend your working hours around people you hate, so why not make your workspace a little brighter?
             <br /><br />
 
-            My lifelong fascination with tech, coupled with the influence of knowledgeable friends & colleagues, motivated me to pursue a career in development. My academic achievements, problem-solving abilities, & interpersonal strengths make me a valuable asset to any team. I am excited to contribute my skills, work ethic, & enthusiasm for innovation to an organization that strives for excellence in producing meaningful & impactful technology for the world.
+            My lifelong fascination with tech, coupled with the influence of knowledgeable friends & colleagues, inspired me to pursue a career in development. My academic achievements, problem-solving abilities, & interpersonal strengths make me a valuable asset. I'm confident that my unwavering commitment to personal growth, combined with my unique background, will not only bring immediate value to any team but also pay significant dividends in the long run. I am excited to contribute my skills, work ethic, & passion for innovation to an organization that strives for excellence in producing meaningful & impactful technology for the world.
           </Typography>
         </Box>
       </Paper>

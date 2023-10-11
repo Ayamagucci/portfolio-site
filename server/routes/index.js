@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, '../..', 'dist'))); // serves static assets & acts as fallback
+app.use(express.static(path.join(__dirname, '../..', 'public'))); // serves public files
 
 app.get('/resume', serveResume); // NOTE: not working! **
 app.get('/*', serveIndex); // catch-all route for SPA **

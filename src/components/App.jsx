@@ -69,6 +69,12 @@ export default function App({ darkMode, toggleDarkMode }) {
     };
   }, []);
 
+  const introFadeEffect = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 1000 }
+  });
+
   const fadeEffect = useSpring({
     from: { opacity: 0.5 },
     to: { opacity: 1 },
@@ -98,9 +104,9 @@ export default function App({ darkMode, toggleDarkMode }) {
         toggleDarkMode={ toggleDarkMode }
       />
 
-      <animated.div style={ fadeEffect }>
+      <animated.div style={ introFadeEffect }>
         <Box sx={ centerStyle }>
-          <Typography variant='h1' /* ref={ refIntroText } */>
+          <Typography variant='h1'>
             <strong>Hi, I'm Alex!</strong>
           </Typography>
           <Resume fadeEffect={ fadeEffect } />
@@ -119,7 +125,7 @@ export default function App({ darkMode, toggleDarkMode }) {
         slideEffect={ slideEffect }
         aria-label='Scroll Down to Project'
       />
-      <Projects centerStyle={ centerStyle } />
+      <Projects pulseEffect={ pulseEffect } centerStyle={ centerStyle } />
 
       <DownScroll
         scrollToSection={ () => scrollToSection('contact') }
