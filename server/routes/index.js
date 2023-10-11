@@ -9,15 +9,11 @@ const app = express();
 
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, '../../dist'))); // serves static assets & acts as fallback
 
-/* serve main HTML file for any URL path requested by client
-  client-side code decides which component to display based on route
-  common for React SPA's **
-*/
-app.get('/*', serveIndex);
+app.use(express.static(path.join(__dirname, '../..', 'dist'))); // serves static assets & acts as fallback
 
 app.get('/resume', serveResume); // NOTE: not working! **
+app.get('/*', serveIndex); // catch-all route for SPA **
 
 const server = app.listen(PORT, () => {
   console.log(`Server listening at PORT: ${ PORT }`);
