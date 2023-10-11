@@ -3,15 +3,7 @@ import { AppBar, Toolbar, Button, Switch, Box, Typography } from '@mui/material'
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
 
-export default function Nav({ elevation, darkMode, toggleDarkMode }) {
-
-  const scrollToSection = (sectionID) => {
-    const elem = document.getElementById(sectionID);
-
-    if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMode }) {
 
   return (
     <AppBar

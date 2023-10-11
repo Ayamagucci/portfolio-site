@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container, Box, Typography, Fab, Zoom } from '@mui/material';
+import { Fab, Zoom } from '@mui/material';
 import DescriptionIcon from '@mui/icons-material/Description';
-import axios from 'axios';
+import { animated } from 'react-spring';
 
-export default function Resume() {
+export default function Resume({ fadeEffect, pulseEffect }) {
 
   const handleDownload = () => {
     const resumeLink = document.createElement('a');
@@ -18,20 +18,24 @@ export default function Resume() {
   };
 
   return (
-    <Fab
-      onClick={ handleDownload }
-      sx={{
-        position: 'absolute',
-        bottom: '42%',
-        // center horizontally
-        left: '50%',
-        transform: 'translateX(-50%)',
-      }}
-      variant='extended'
-      color='primary'
-      aria-label='Download Resumé'
-    >
-      <DescriptionIcon /> Download My Resumé
-    </Fab>
+    // <Zoom in={ true } /* style={{ transitionDelay: '500ms' }} */>
+    <animated.div style={ pulseEffect }>
+      <animated.div style={ fadeEffect }>
+        <Fab onClick={ handleDownload }
+          sx={{
+            position: 'absolute',
+            bottom: '42%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
+          variant='extended'
+          color='primary'
+          aria-label='Download Resumé'
+        >
+          <DescriptionIcon /> Download My Resumé
+        </Fab>
+      </animated.div>
+    </animated.div>
+    // </Zoom>
   );
 }
