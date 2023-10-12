@@ -11,8 +11,14 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use(express.static(path.join(__dirname, '../..', 'dist'))); // serves static assets & acts as fallback
-app.use(express.static(path.join(__dirname, '../..', 'public'))); // serves public files
+const dist = path.join(__dirname, '../..', 'dist');
+console.log(`dist: ${ dist }`); // confirmed correct path **
+
+const public = path.join(__dirname, '../..', 'public');
+console.log(`public: ${ public }`); // confirmed correct path **
+
+app.use(express.static(dist)); // serves index.html
+app.use(express.static(public)); // serves resumé
 
 app.get('/resume', serveResume); // NOTE: not working! **
 app.get('/*', serveIndex); // catch-all route for SPA **

@@ -16,7 +16,7 @@ export default function ImageModal({ open, handleClose, url, index, setImageInde
     setImageIndex((prevIndex) => (prevIndex + 1) % gifs.length);
   };
 
-  // animations
+  // NOTE: animations not working! **
   const animPrevFab = useSpring({
     opacity: open ? 1 : 0,
     transform: open ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0)',
@@ -45,7 +45,7 @@ export default function ImageModal({ open, handleClose, url, index, setImageInde
 
       <DialogContent>
         { (index !== null) && (
-          <Box>
+          <>
             <img src={ url }
               style={{
                 display: 'block',
@@ -60,8 +60,8 @@ export default function ImageModal({ open, handleClose, url, index, setImageInde
               left: '1rem',
               bottom: '50%'
             }}>
-              <animated.div style={ animPrevFab }>
-                <Tooltip title='Previous' placement='top'>
+              <Tooltip title='Previous' placement='left'>
+                <animated.div style={ animPrevFab }>
                   <Fab
                     onClick={ prevImage }
                     color='primary'
@@ -69,8 +69,8 @@ export default function ImageModal({ open, handleClose, url, index, setImageInde
                   >
                     <FastRewindIcon />
                   </Fab>
-                </Tooltip>
-              </animated.div>
+                </animated.div>
+              </Tooltip>
             </Box>
 
             <Box sx={{
@@ -78,8 +78,8 @@ export default function ImageModal({ open, handleClose, url, index, setImageInde
               right: '1rem',
               bottom: '50%'
             }}>
-              <animated.div style={ animNextFab }>
-                <Tooltip title='Next' placement='top'>
+              <Tooltip title='Next' placement='right'>
+                <animated.div style={ animNextFab }>
                   <Fab
                     onClick={ nextImage }
                     color='primary'
@@ -87,10 +87,10 @@ export default function ImageModal({ open, handleClose, url, index, setImageInde
                   >
                     <FastForwardIcon />
                   </Fab>
-                </Tooltip>
-              </animated.div>
+                </animated.div>
+              </Tooltip>
             </Box>
-          </Box>
+          </>
         ) }
       </DialogContent>
     </Dialog>
