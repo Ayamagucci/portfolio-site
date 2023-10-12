@@ -4,8 +4,9 @@ import FastRewindIcon from '@mui/icons-material/FastRewind';
 import FastForwardIcon from '@mui/icons-material/FastForward';
 import projects from '../data/projects';
 import ImageModal from './ImageModal';
+import { animated } from 'react-spring';
 
-export default function Projects({ centerStyle }) {
+export default function Projects({ centerStyle, pulseEffect }) {
 
   const [ projectIndex, setProjectIndex ] = useState(0);
   const { title, description, year, skills, gifs } = projects[projectIndex];
@@ -41,13 +42,15 @@ export default function Projects({ centerStyle }) {
         }}
       >
         <Tooltip title='Previous' placement='left'>
-          <Fab
-            color='primary'
-            size='small'
-            onClick={ prevProject }
-          >
-            <FastRewindIcon />
-          </Fab>
+          <animated.div style={ pulseEffect }>
+            <Fab
+              color='primary'
+              size='small'
+              onClick={ prevProject }
+            >
+              <FastRewindIcon />
+            </Fab>
+          </animated.div>
         </Tooltip>
 
         <Typography
@@ -58,13 +61,15 @@ export default function Projects({ centerStyle }) {
         </Typography>
 
         <Tooltip title='Next' placement='right'>
-          <Fab
-            color='primary'
-            size='small'
-            onClick={ nextProject }
-          >
-            <FastForwardIcon />
-          </Fab>
+          <animated.div style={ pulseEffect }>
+            <Fab
+              color='primary'
+              size='small'
+              onClick={ nextProject }
+            >
+              <FastForwardIcon />
+            </Fab>
+          </animated.div>
         </Tooltip>
       </Box>
 
