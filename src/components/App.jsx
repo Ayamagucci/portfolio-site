@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Box, Typography, Fab } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, useTrail, animated } from 'react-spring';
 import Nav from './Nav';
 import Resume from './Resume';
 import About from './About';
@@ -69,10 +69,19 @@ export default function App({ darkMode, toggleDarkMode }) {
     };
   }, []);
 
-  const introFadeEffect = useSpring({
+  // stagger fade animations for intro vs resumé
+  const introText = 'Hi, I\'m Alex!';
+
+  const trailIntro = useTrail(introText.length, {
     from: { opacity: 0 },
     to: { opacity: 1 },
-    config: { duration: 1000 }
+    config: { duration: 500 }
+  });
+
+  const trailFade = useTrail(2, {
+    from: { opacity: 0.5 },
+    to: { opacity: 1 },
+    config: { duration: 2000 }
   });
 
   const fadeEffect = useSpring({
@@ -82,7 +91,7 @@ export default function App({ darkMode, toggleDarkMode }) {
   });
 
   const pulseEffect = useSpring({
-    from: { opacity: 0.8 },
+    from: { opacity: 0.7 },
     to: { opacity: 1 },
     config: { duration: 1500 },
     loop: true
@@ -104,13 +113,20 @@ export default function App({ darkMode, toggleDarkMode }) {
         toggleDarkMode={ toggleDarkMode }
       />
 
-      <animated.div style={ introFadeEffect }>
-        <Box sx={ centerStyle }>
-          <Typography variant='h1'>
-            <strong>Hi, I'm Alex!</strong>
-          </Typography>
-          <Resume fadeEffect={ fadeEffect } />
-        </Box>
+      <animated.div style={ centerStyle }>
+        <Typography variant='h1'>
+          <strong>
+            { trailIntro.map((props, i) => (
+              <animated.span style={{ ...props }} key={ i }>
+                { introText[i] }
+              </animated.span>
+            )) }
+          </strong>
+        </Typography>
+      </animated.div>
+
+      <animated.div style={ trailFade[0] }>
+        <Resume fadeEffect={ trailFade[1] } pulseEffect={ pulseEffect } />
       </animated.div>
 
       <DownScroll
