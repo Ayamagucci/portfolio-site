@@ -4,6 +4,9 @@ import { createTheme } from '@mui/material/styles';
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
+    typography: {
+      fontFamily: 'Roboto, sans-serif' // imported font family
+    },
     primary: {
       main: "#1976D2"
     },

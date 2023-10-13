@@ -4,7 +4,7 @@ const Download = require('../models/Download');
 exports.serveIndex = async function(req, res) {
   try {
     const filePath = path.join(__dirname, '../../dist', 'index.html');
-    console.log(`filePath: ${ filePath }`); // confirmed correct path **
+    // console.log(`filePath: ${ filePath }`); // confirmed correct path **
 
     await res.sendFile(filePath);
     res.status(200).end();

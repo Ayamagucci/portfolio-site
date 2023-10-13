@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Grid, Typography, Fab, Tooltip, Paper } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Grid, Typography, Fab, Tooltip, Paper, ImageList, ImageListItem } from '@mui/material';
 import FastRewindIcon from '@mui/icons-material/FastRewind';
 import FastForwardIcon from '@mui/icons-material/FastForward';
 import projects from '../data/projects';
@@ -33,30 +33,21 @@ export default function Projects({ centerStyle, pulseEffect }) {
   };
 
   return (
-    <Box id='projects' sx={{ ...centerStyle, marginY: '17.5rem' }}>
-      <Box sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        mb: '2.5rem'
-        }}
+    <Box id='projects' sx={{ ...centerStyle, my: '17.5rem' }}>
+      <Box
+        alignItems='center'
+        justifyContent='center'
+        sx={{ display: 'flex', mb: '2.5rem' }}
       >
         <Tooltip title='Previous' placement='left'>
           <animated.div style={ pulseEffect }>
-            <Fab
-              color='primary'
-              size='small'
-              onClick={ prevProject }
-            >
+            <Fab onClick={ prevProject } color='primary' size='small'>
               <FastRewindIcon />
             </Fab>
           </animated.div>
         </Tooltip>
 
-        <Typography
-          variant='h2'
-          sx={{ marginX: '1rem' }}
-        >
+        <Typography sx={{ mx: '1rem' }} variant='h2'>
           My Projects
         </Typography>
 
@@ -74,13 +65,15 @@ export default function Projects({ centerStyle, pulseEffect }) {
       </Box>
 
       <Paper elevation={ 3 }>
-        <Box p={ 2 } /* marginY="2rem" */>
-          <Box sx={{
-            display: 'flex',
-            alignItems: 'center',
-            ml: '0.5rem',
-            mb: '1rem'
-          }}>
+        <Box sx={{ padding: 2 }}>
+          <Box
+            alignItems='center'
+            sx={{
+              display: 'flex',
+              ml: '0.5rem',
+              mb: '1rem'
+            }}
+          >
             <Typography variant='h5' sx={{ mr: '2.5rem' }}>
               <strong>{ title }</strong>
             </Typography>
@@ -97,17 +90,19 @@ export default function Projects({ centerStyle, pulseEffect }) {
         </Box>
 
         <Grid container spacing={ 2 }>
-          { gifs.map((gif, i) => (
-            <Grid item xs={ 12 } sm={ 6 } md={ 4 } key={ i }>
-              <Box onClick={ () => handleOpen(i) }>
+          <ImageList cols={ 3 } rowHeight={ 300 }>
+            { gifs.map((gif, i) => (
+              <ImageListItem key={ i }>
                 <img
                   src={ gif }
                   alt={ `${ title }: ${ i }` }
+                  onClick={ () => handleOpen(i) }
+                  loading='lazy'
                   style={{ width: '100%', cursor: 'pointer' }}
                 />
-              </Box>
-            </Grid>
-          )) }
+              </ImageListItem>
+            )) }
+          </ImageList>
         </Grid>
 
         { (open) && (
@@ -120,7 +115,6 @@ export default function Projects({ centerStyle, pulseEffect }) {
             gifs={ gifs }
           />
         ) }
-
       </Paper>
     </Box>
   );

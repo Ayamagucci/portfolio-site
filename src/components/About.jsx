@@ -19,7 +19,7 @@ export default function About({ centerStyle }) {
       </Box>
 
       <Paper elevation={ 3 }>
-        <Box sx={{ margin: '1.5rem' }}>
+        <Box sx={{ m: '1.5rem' }}>
           <Typography variant='body1'>
             My journey into tech began during my undergraduate years when my strong fascination with the industry led me to independently explore JavaScript in my free time. This early curiosity ultimately set the stage for my transition into software development. Since then, I've continued to master the craft by adopting best practices and staying current with developments in the field. Notable strides include:
           </Typography>
@@ -35,7 +35,7 @@ export default function About({ centerStyle }) {
           <br /><br />
 
           <Typography variant='body1'>
-            While my path into software may differ from the conventional route, it has endowed me with a unique skill set that could prove invaluable to cross-functional teams. My previous journey as a prospective physician greatly honed my logical reasoning skills, enabling me to offer fresh insights and approach problems from innovative angles. My achievements as a Summa Cum Laude graduate & my top 5% nationwide ranking in the "Critical Analysis & Reasoning Skills" section of the MCAT serve as testaments to my unwavering work ethic & intellectual capacity — attributes that seamlessly transition into the realm of software engineering.
+            While my path into software may differ from the conventional route, it has endowed me with a unique skill set that could prove invaluable to cross-functional teams. My previous journey as a prospective physician greatly honed my logical reasoning skills, enabling me to offer fresh insights and approach problems from innovative angles. My achievements as a Summa Cum Laude graduate & my top 5% nationwide ranking in the "Critical Analysis & Reasoning Skills" section of the MCAT serve as testaments to my unwavering work ethic & logical capacity — attributes that seamlessly transition into the realm of software engineering.
             <br /><br />
 
             But I'm not all business — I'm also a fun-loving, charismatic team player who knows how to keep things light. After all, life’s too short to spend your working hours around people you hate, so why not make your workspace a little brighter?

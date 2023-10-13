@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography } from '@mui/material';
+import { Container, Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useSpring, useTrail, animated } from 'react-spring';
 import Nav from './Nav';
@@ -15,24 +15,23 @@ export default function App({ darkMode, toggleDarkMode }) {
   const theme = useTheme();
 
   const centerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
+    display: 'flex', // display
+    flexDirection: 'column', // flexDirection
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: '80vh',
-    padding: '2rem'
+    minHeight: '80vh', // minHeight
+    padding: '2rem' // padding
   };
 
   // elevate AppBar & display FAB on scroll
   const [ elevation, setElevation ] = useState(0);
-  const [ fabScroll, setFabScroll ] = useState(false);
+  const [ fabAppear, setFabAppear ] = useState(false);
 
   // handler for Nav & DownScroll
   const scrollToSection = (sectionID) => {
     const elem = document.getElementById(sectionID);
 
     if (elem) {
-      // elem.scrollIntoView({ behavior: 'smooth' });
       elem.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -53,9 +52,9 @@ export default function App({ darkMode, toggleDarkMode }) {
 
     // render FAB
     if (scrollY > 100) {
-      setFabScroll(true);
+      setFabAppear(true);
     } else {
-      setFabScroll(false);
+      setFabAppear(false);
     }
   };
 
@@ -113,7 +112,8 @@ export default function App({ darkMode, toggleDarkMode }) {
         toggleDarkMode={ toggleDarkMode }
       />
 
-      <animated.div style={ centerStyle }>
+      {/* INTRO TEXT ANIMATION */}
+      <Box sx={ centerStyle }>
         <Typography variant='h1'>
           <strong>
             { trailIntro.map((props, i) => (
@@ -123,7 +123,7 @@ export default function App({ darkMode, toggleDarkMode }) {
             )) }
           </strong>
         </Typography>
-      </animated.div>
+      </Box>
 
       <animated.div style={ trailFade[0] }>
         <Resume fadeEffect={ trailFade[1] } pulseEffect={ pulseEffect } />
@@ -148,10 +148,10 @@ export default function App({ darkMode, toggleDarkMode }) {
         slideEffect={ slideEffect }
         aria-label='Scroll Down to Contact'
       />
-      <Contact centerStyle={ centerStyle } />
+      <Contact centerStyle={ centerStyle } pulseEffect={ pulseEffect } />
 
       { elevation && (
-        <ScrollToTop elevation={ elevation } fabScroll={ fabScroll } pulseEffect={ pulseEffect } />
+        <ScrollToTop elevation={ elevation } fabAppear={ fabAppear } pulseEffect={ pulseEffect } />
       ) }
     </Container>
   );

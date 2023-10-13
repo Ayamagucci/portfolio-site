@@ -29,7 +29,6 @@ export default function Resume({ fadeEffect, pulseEffect }) {
       // blobs consume memory —> good practice to revoke when done w/ it!
 
     } catch(err) {
-      // console.error(`Error downloading resumé: ${ err }`);
       alert(`Error downloading resumé: ${ err }`);
     }
   };
