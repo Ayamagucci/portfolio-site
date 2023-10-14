@@ -47,7 +47,7 @@ export default function Projects({ centerStyle, pulseEffect }) {
           </animated.div>
         </Tooltip>
 
-        <Typography sx={{ mx: '1rem' }} variant='h2'>
+        <Typography sx={{ mx: '1rem' }} variant='h2' color='textPrimary'>
           My Projects
         </Typography>
 

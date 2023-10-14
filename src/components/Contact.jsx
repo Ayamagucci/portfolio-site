@@ -7,7 +7,7 @@ import { useSpring, animated } from 'react-spring';
 
 export default function Contact({ centerStyle, pulseEffect }) {
 
-  const emailSubject = encodeURIComponent('You\'re Hired — Let\'s Talk!');
+  const emailSubject = encodeURIComponent('Let\'s Connect!');
 
   const scaleEffect = useSpring({
     from: { scale: 1 },
@@ -18,8 +18,8 @@ export default function Contact({ centerStyle, pulseEffect }) {
 
   return (
     <Box id='contact' sx={{ ...centerStyle, mt: '17.5rem' }}>
-      <Typography variant='h2' sx={{ fontSize: '6rem' }} color='inherit'>
-        Connect with me!
+      <Typography variant='h2' sx={{ fontSize: '6rem' }} color='textPrimary'>
+        Connect with me:
       </Typography>
 
       <animated.div style={{ ...scaleEffect, mt: 2 }}>
@@ -38,6 +38,10 @@ export default function Contact({ centerStyle, pulseEffect }) {
           <EmailIcon sx={{ fontSize: '7rem' }} />
         </Link>
       </animated.div>
+
+      <Typography variant='h4' sx={{ mt: '1rem' }} color='textPrimary'>
+        Thanks for coming!
+      </Typography>
     </Box>
   );
 }

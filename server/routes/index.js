@@ -12,15 +12,12 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 const dist = path.join(__dirname, '../..', 'dist');
-console.log(`dist: ${ dist }`); // confirmed correct path **
-
 const public = path.join(__dirname, '../..', 'public');
-console.log(`public: ${ public }`); // confirmed correct path **
 
 app.use(express.static(dist)); // serves index.html
 app.use(express.static(public)); // serves resumé
 
-app.get('/resume', serveResume); // NOTE: not working! **
+app.get('/resume', serveResume);
 app.get('/*', serveIndex); // catch-all route for SPA **
 
 const server = app.listen(PORT, () => {

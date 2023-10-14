@@ -11,7 +11,7 @@ export default function DownScroll({ slideEffect, scrollToSection }) {
       justifyContent: 'center',
       alignItems: 'center'
     }}>
-      <Tooltip title='Scroll down!' placement='top'>
+      <Tooltip title='Next Section' placement='top'>
         <animated.div style={ slideEffect }>
           <Fab onClick={ scrollToSection } color='primary'>
             <KeyboardArrowDownIcon />

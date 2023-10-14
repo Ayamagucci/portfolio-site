@@ -11,9 +11,10 @@ export default function ScrollToTop({ elevation, fabAppear, pulseEffect }) {
 
   return (
     <Zoom in={ fabAppear }>
-      <Tooltip title='Scroll back to top' placement='top'>
-        <animated.div style={ pulseEffect }>
-          <Fab onClick={ upScroll }
+      <animated.div style={ pulseEffect }>
+        <Tooltip title='Back to Top' placement='top'>
+          <Fab
+            onClick={ upScroll }
             sx={{
               position: 'fixed',
               bottom: '3.5rem',
@@ -25,8 +26,8 @@ export default function ScrollToTop({ elevation, fabAppear, pulseEffect }) {
           >
             <KeyboardDoubleArrowUpIcon />
           </Fab>
-        </animated.div>
-      </Tooltip>
+        </Tooltip>
+      </animated.div>
     </Zoom>
   );
 }

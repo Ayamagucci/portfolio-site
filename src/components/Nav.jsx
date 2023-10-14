@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Button, Switch, Box, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
 
 export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMode }) {
 
+  const theme = useTheme();
+
   return (
-    <AppBar
-      position='sticky'
-      elevation={ elevation }
-      sx={{ borderRadius: '7px' }}
-    >
-      <Toolbar sx={{ justifyContent:'space-between' }}>
+    <AppBar position='sticky' elevation={ elevation }>
+      <Toolbar sx={{
+        justifyContent: 'space-between',
+        backgroundColor: theme.palette.primary.main,
+        borderRadius: '7px'
+      }}>
         <Box>
           <Button
             onClick={ () => scrollToSection('about') }
-            color='inherit'
+            sx={{ color: theme.palette.background.paper }}
             aria-label='About'
           >
             About
@@ -23,23 +26,15 @@ export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMo
 
           <Button
             onClick={ () => scrollToSection('projects') }
-            color='inherit'
+            sx={{ color: theme.palette.background.paper }}
             aria-label='Projects'
           >
             Projects
           </Button>
 
-          {/* <Button
-            onClick={ () => scrollToSection('skills') }
-            color='inherit'
-            aria-label='Skills'
-          >
-            Skills
-          </Button> */}
-
           <Button
             onClick={ () => scrollToSection('contact') }
-            color='inherit'
+            sx={{ color: theme.palette.background.paper }}
             aria-label='Contact'
           >
             Contact
@@ -47,11 +42,27 @@ export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMo
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant='body2' sx={{ mr: '0.5rem' }}>
-            { darkMode ? 'Dark' : 'Light' }
+          <Typography variant='body2' sx={{ mr: '0.5rem', color: theme.palette.background.paper }}>
+            { darkMode ? 'DARK' : 'LIGHT' }
           </Typography>
-          <Switch checked={ darkMode } onChange={ toggleDarkMode } />
-          { darkMode ? <Brightness4OutlinedIcon /> : <Brightness4Icon /> }
+
+          <Switch
+            checked={ darkMode }
+            onChange={ toggleDarkMode }
+            sx={{
+              '& .MuiSwitch-thumb': {
+                backgroundColor: theme.palette.background.paper
+              },
+              '& .MuiSwitch-track': {
+                backgroundColor: theme.palette.background.paper + ' !important'
+              }
+            }}
+          />
+          { darkMode ? (
+            <Brightness4OutlinedIcon sx={{ color: theme.palette.background.paper }} />
+          ) : (
+            <Brightness4Icon sx={{ color: theme.palette.background.paper }} />
+          ) }
         </Box>
       </Toolbar>
     </AppBar>

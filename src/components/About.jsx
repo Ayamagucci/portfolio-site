@@ -11,9 +11,8 @@ export default function About({ centerStyle }) {
         alignItems: 'center',
         justifyContent: 'center',
         mb: '2.5rem'
-        }}
-      >
-        <Typography variant='h2'>
+      }}>
+        <Typography variant='h2' color='textPrimary'>
           About Me:
         </Typography>
       </Box>

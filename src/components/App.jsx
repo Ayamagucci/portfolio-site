@@ -15,12 +15,12 @@ export default function App({ darkMode, toggleDarkMode }) {
   const theme = useTheme();
 
   const centerStyle = {
-    display: 'flex', // display
-    flexDirection: 'column', // flexDirection
+    display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: '80vh', // minHeight
-    padding: '2rem' // padding
+    minHeight: '80vh',
+    padding: '2rem'
   };
 
   // elevate AppBar & display FAB on scroll
@@ -74,19 +74,13 @@ export default function App({ darkMode, toggleDarkMode }) {
   const trailIntro = useTrail(introText.length, {
     from: { opacity: 0 },
     to: { opacity: 1 },
-    config: { duration: 500 }
+    config: { duration: 400 }
   });
 
   const trailFade = useTrail(2, {
     from: { opacity: 0.5 },
     to: { opacity: 1 },
     config: { duration: 2000 }
-  });
-
-  const fadeEffect = useSpring({
-    from: { opacity: 0.5 },
-    to: { opacity: 1 },
-    config: { duration: 2250 }
   });
 
   const pulseEffect = useSpring({
@@ -104,55 +98,57 @@ export default function App({ darkMode, toggleDarkMode }) {
   });
 
   return (
-    <Container maxWidth='xl' sx={{ backgroundColor: theme.palette.background.default }}>
-      <Nav
-        scrollToSection={ scrollToSection }
-        elevation={ elevation }
-        darkMode={ darkMode }
-        toggleDarkMode={ toggleDarkMode }
-      />
+    <Box sx={{ backgroundColor: theme.palette.background.default }}>
+      <Container maxWidth='xl'>
+        <Nav
+          scrollToSection={ scrollToSection }
+          elevation={ elevation }
+          darkMode={ darkMode }
+          toggleDarkMode={ toggleDarkMode }
+        />
 
-      {/* INTRO TEXT ANIMATION */}
-      <Box sx={ centerStyle }>
-        <Typography variant='h1'>
-          <strong>
-            { trailIntro.map((props, i) => (
-              <animated.span style={{ ...props }} key={ i }>
-                { introText[i] }
-              </animated.span>
-            )) }
-          </strong>
-        </Typography>
-      </Box>
+        {/* INTRO TEXT ANIMATION */}
+        <Box sx={ centerStyle }>
+          <Typography variant='h1' color='textPrimary'>
+            <strong>
+              { trailIntro.map((props, i) => (
+                <animated.span style={{ ...props }} key={ i }>
+                  { introText[i] }
+                </animated.span>
+              )) }
+            </strong>
+          </Typography>
+        </Box>
 
-      <animated.div style={ trailFade[0] }>
-        <Resume fadeEffect={ trailFade[1] } pulseEffect={ pulseEffect } />
-      </animated.div>
+        <animated.div style={ trailFade[0] }>
+          <Resume fadeEffect={ trailFade[1] } pulseEffect={ pulseEffect } />
+        </animated.div>
 
-      <DownScroll
-        scrollToSection={ () => scrollToSection('about') }
-        slideEffect={ slideEffect }
-        aria-label='Scroll Down to About'
-      />
-      <About centerStyle={ centerStyle } />
+        <DownScroll
+          scrollToSection={ () => scrollToSection('about') }
+          slideEffect={ slideEffect }
+          aria-label='Scroll Down to About'
+        />
+        <About centerStyle={ centerStyle } />
 
-      <DownScroll
-        scrollToSection={ () => scrollToSection('projects') }
-        slideEffect={ slideEffect }
-        aria-label='Scroll Down to Project'
-      />
-      <Projects pulseEffect={ pulseEffect } centerStyle={ centerStyle } />
+        <DownScroll
+          scrollToSection={ () => scrollToSection('projects') }
+          slideEffect={ slideEffect }
+          aria-label='Scroll Down to Project'
+        />
+        <Projects pulseEffect={ pulseEffect } centerStyle={ centerStyle } />
 
-      <DownScroll
-        scrollToSection={ () => scrollToSection('contact') }
-        slideEffect={ slideEffect }
-        aria-label='Scroll Down to Contact'
-      />
-      <Contact centerStyle={ centerStyle } pulseEffect={ pulseEffect } />
+        <DownScroll
+          scrollToSection={ () => scrollToSection('contact') }
+          slideEffect={ slideEffect }
+          aria-label='Scroll Down to Contact'
+        />
+        <Contact centerStyle={ centerStyle } pulseEffect={ pulseEffect } />
 
-      { elevation && (
-        <ScrollToTop elevation={ elevation } fabAppear={ fabAppear } pulseEffect={ pulseEffect } />
-      ) }
-    </Container>
+        { elevation && (
+          <ScrollToTop elevation={ elevation } fabAppear={ fabAppear } pulseEffect={ pulseEffect } />
+        ) }
+      </Container>
+    </Box>
   );
 }
