@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Link } from '@mui/material';
+import { Container, Typography, Link } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
@@ -17,7 +17,7 @@ export default function Contact({ centerStyle, pulseEffect }) {
   });
 
   return (
-    <Box id='contact' sx={{ ...centerStyle, mt: '17.5rem' }}>
+    <Container id='contact' sx={ centerStyle }>
       <Typography variant='h2' sx={{ fontSize: '6rem' }} color='textPrimary'>
         Connect with me:
       </Typography>
@@ -42,6 +42,6 @@ export default function Contact({ centerStyle, pulseEffect }) {
       <Typography variant='h4' sx={{ mt: '1rem' }} color='textPrimary'>
         Thanks for coming!
       </Typography>
-    </Box>
+    </Container>
   );
 }

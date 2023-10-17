@@ -3,8 +3,9 @@ import { AppBar, Toolbar, Button, Switch, Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
+import scrollToSection from '../utils/scrollToSection';
 
-export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMode }) {
+export default function Nav({ elevation, darkMode, toggleDarkMode }) {
 
   const theme = useTheme();
 
@@ -17,14 +18,25 @@ export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMo
       }}>
         <Box>
           <Button
-            onClick={ () => scrollToSection('about') }
+            // name='landing'
+            onClick={ () => scrollToSection('landing') }
             sx={{ color: theme.palette.background.paper }}
-            aria-label='About'
+            aria-label='Resumé'
           >
-            About
+            Resumé
           </Button>
 
           <Button
+            // name='bio'
+            onClick={ () => scrollToSection('bio') }
+            sx={{ color: theme.palette.background.paper }}
+            aria-label='Bio'
+          >
+            Bio
+          </Button>
+
+          <Button
+            // name='projects'
             onClick={ () => scrollToSection('projects') }
             sx={{ color: theme.palette.background.paper }}
             aria-label='Projects'
@@ -33,6 +45,7 @@ export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMo
           </Button>
 
           <Button
+            // name='contact'
             onClick={ () => scrollToSection('contact') }
             sx={{ color: theme.palette.background.paper }}
             aria-label='Contact'
@@ -47,6 +60,7 @@ export default function Nav({ scrollToSection, elevation, darkMode, toggleDarkMo
           </Typography>
 
           <Switch
+            name='light-switch'
             checked={ darkMode }
             onChange={ toggleDarkMode }
             sx={{

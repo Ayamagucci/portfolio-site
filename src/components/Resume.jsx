@@ -37,12 +37,12 @@ export default function Resume({ fadeEffect, pulseEffect }) {
     <animated.div style={ fadeEffect }>
       <animated.div style={ pulseEffect }>
         <Fab onClick={ handleDownload }
-          sx={{
-            position: 'absolute',
-            bottom: '42%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-          }}
+          // sx={{
+          //   position: 'absolute',
+          //   bottom: '42%',
+          //   left: '50%',
+          //   transform: 'translateX(-50%)',
+          // }}
           variant='extended'
           color='primary'
           aria-label='Download Resumé'
