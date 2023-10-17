@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Box, Typography, Link } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -11,7 +11,7 @@ export default function Contact({ centerStyle, pulseEffect }) {
 
   const scaleEffect = useSpring({
     from: { scale: 1 },
-    to: { scale: 1.05 },
+    to: { scale: 1.15 },
     config: { duration: 1200 },
     loop: true
   });
@@ -23,7 +23,7 @@ export default function Contact({ centerStyle, pulseEffect }) {
           Connect with me:
         </Typography>
 
-        <animated.div style={{ ...scaleEffect, mt: 2 }}>
+        <animated.div style={{ ...scaleEffect }}>
           {/* LINKEDIN */}
           <Link href='https://www.linkedin.com/in/ayamagucci/' target='_blank' color='primary'>
             <LinkedInIcon sx={{ fontSize: '7rem' }} />

@@ -137,11 +137,11 @@ export default function App({ darkMode, toggleDarkMode }) {
         <Bio centerStyle={ centerStyle } />
         <Projects centerStyle={ centerStyle } pulseEffect={ pulseEffect } />
         <Contact centerStyle={ centerStyle } pulseEffect={ pulseEffect } />
-
-        { elevation && (
-          <ScrollToTop elevation={ elevation } fabAppear={ fabAppear } pulseEffect={ pulseEffect } />
-        ) }
       </Container>
+
+      { elevation && (
+        <ScrollToTop fabAppear={ fabAppear } /* pulseEffect={ pulseEffect } *//>
+      ) }
 
       <DownScroll maxScroll={ maxScroll } section={ currentSection } />
     </Box>
