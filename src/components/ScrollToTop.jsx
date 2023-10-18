@@ -2,6 +2,7 @@ import React from 'react';
 import { Zoom, Tooltip, Fab } from '@mui/material';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { animated } from 'react-spring';
+import Hover from './animations/Hover';
 
 export default function ScrollToTop({ fabAppear, /* pulseEffect */}) {
 

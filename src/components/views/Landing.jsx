@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Box, Typography } from '@mui/material';
 import { useTrail, animated } from 'react-spring';
 import Resume from '../Resume';
+import Hover from '../animations/Hover';
 
 export default function Landing({ centerStyle, pulseEffect }) {
 
@@ -32,9 +33,11 @@ export default function Landing({ centerStyle, pulseEffect }) {
           </strong>
         </Typography>
 
-        <animated.div style={ trailFade[0] }>
-          <Resume fadeEffect={ trailFade[1] } pulseEffect={ pulseEffect } />
-        </animated.div>
+        <Hover>
+          <animated.div style={ trailFade[0] }>
+            <Resume fadeEffect={ trailFade[1] } pulseEffect={ pulseEffect } />
+          </animated.div>
+        </Hover>
       </Box>
     </Container>
   );

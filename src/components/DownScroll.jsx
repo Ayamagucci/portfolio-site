@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Tooltip, Fab } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useSpring, animated } from 'react-spring';
+import Hover from './animations/Hover';
 
 export default function DownScroll({ maxScroll, section }) {
 
@@ -34,13 +35,15 @@ export default function DownScroll({ maxScroll, section }) {
       zIndex: 1000,
       visibility: (window.scrollY < maxScroll) ? ('visible') : ('hidden')
     }}>
-      <Tooltip title='Next Section' placement='top'>
-        <animated.div style={ slideEffect }>
-          <Fab onClick={ scrollDown } color='primary'>
-            <KeyboardArrowDownIcon />
-          </Fab>
-        </animated.div>
-      </Tooltip>
+      <Hover>
+        <Tooltip title='Next Section' placement='top'>
+          <animated.div style={ slideEffect }>
+            <Fab onClick={ scrollDown } color='primary'>
+              <KeyboardArrowDownIcon />
+            </Fab>
+          </animated.div>
+        </Tooltip>
+      </Hover>
     </Box>
   );
 }

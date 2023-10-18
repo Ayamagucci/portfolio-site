@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Container, Box, Typography, Fab, Tooltip, Grid, Paper, ImageList, ImageListItem } from '@mui/material';
 import FastRewindIcon from '@mui/icons-material/FastRewind';
 import FastForwardIcon from '@mui/icons-material/FastForward';
-import projects from '../../data/projects';
-// import ProjectDetails from '../ProjectDetails';
-import ImageModal from '../ImageModal';
 import { animated } from 'react-spring';
+import projects from '../../data/projects';
+import ImageModal from '../ImageModal';
+import Hover from '../animations/Hover';
 
 export default function Projects({ centerStyle, pulseEffect }) {
 
@@ -85,17 +85,19 @@ export default function Projects({ centerStyle, pulseEffect }) {
           alignItems='center'
           justifyContent='center'
         >
-          <Tooltip title='Previous' placement='left'>
-            <animated.div style={ pulseEffect }>
-              <Fab
-                color='primary'
-                size='large'
-                onClick={ prevProject }
-              >
-                <FastRewindIcon />
-              </Fab>
-            </animated.div>
-          </Tooltip>
+          <Hover>
+            <Tooltip title='Previous' placement='left'>
+              <animated.div style={ pulseEffect }>
+                <Fab
+                  color='primary'
+                  size='large'
+                  onClick={ prevProject }
+                >
+                  <FastRewindIcon />
+                </Fab>
+              </animated.div>
+            </Tooltip>
+          </Hover>
 
           <Paper sx={{ mx: '1.5rem' }} elevation={ 3 }>
             <Box sx={{ p: '1.5rem' }}>
@@ -151,17 +153,19 @@ export default function Projects({ centerStyle, pulseEffect }) {
             ) }
           </Paper>
 
-          <Tooltip title='Next' placement='right'>
-            <animated.div style={ pulseEffect }>
-              <Fab
-                color='primary'
-                size='large'
-                onClick={ nextProject }
-              >
-                <FastForwardIcon />
-              </Fab>
-            </animated.div>
-          </Tooltip>
+          <Hover>
+            <Tooltip title='Next' placement='right'>
+              <animated.div style={ pulseEffect }>
+                <Fab
+                  color='primary'
+                  size='large'
+                  onClick={ nextProject }
+                >
+                  <FastForwardIcon />
+                </Fab>
+              </animated.div>
+            </Tooltip>
+          </Hover>
         </Box>
       </Box>
     </Container>

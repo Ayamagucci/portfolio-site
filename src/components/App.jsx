@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { useSpring, useTrail, animated } from 'react-spring';
+import Hover from './animations/Hover';
 
 // components
 import Nav from './Nav';
@@ -36,6 +37,13 @@ export default function App({ darkMode, toggleDarkMode }) {
     to: { opacity: 1 },
     config: { duration: 1500 },
     loop: true
+  });
+
+  // upscale components on hover
+  const [ hover, setHover ] = useState(false);
+
+  const hoverEffect = useSpring({
+    transform: hover ? 'scale(1.15)' : 'scale(1)'
   });
 
   // elevate AppBar & display FAB on scroll
