@@ -71,12 +71,16 @@ export default function Projects({ centerStyle, pulseEffect }) {
         </Box>
 
         <Box
-          sx={{ display: 'flex', mb: '1rem' }}
+          sx={{ display: 'flex', mb: '1rem', width: '1000px' }}
           alignItems='center'
           justifyContent='center'
         >
-          <Typography variant='subtitle1' color='textPrimary'>
-            In the last year, I've been completely immersed in various projects, collaborating with different teams in agile environments. These experiences have not just expanded my technical knowledge but also offered me the chance to test my skills in real-world scenarios, significantly honing my problem-solving & troubleshooting abilities. Plus, I've had the opportunity to dabble in a diverse array of tech ecosystems, equipping me with further tools, platforms, & dev environments, broadening my perspective on available resources & enhancing my adaptability.
+          <Typography
+            sx={{ textAlign: 'center' }}
+            variant='subtitle1'
+            color='textPrimary'
+          >
+            In the last year, I've been completely immersed in various projects, collaborating with different teams in agile environments. These experiences have not just expanded my technical knowledge but also offered me the chance to test my skills in real-world scenarios, significantly honing my problem-solving & troubleshooting abilities. Plus, I've had the opportunity to dabble in a diverse array of tech ecosystems, equipping me with additional tools, platforms, & dev environments, broadening my perspective on available resources & enhancing my adaptability.
           </Typography>
         </Box>
 
