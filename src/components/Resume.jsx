@@ -34,15 +34,27 @@ export default function Resume({ fadeEffect, pulseEffect }) {
   };
 
   return (
+    <animated.div style={ pulseEffect }>
+      <Fab
+        onClick={ handleDownload }
+        variant='extended'
+        color='primary'
+        aria-label='Download Resumé'
+      >
+        <DescriptionIcon /> Download My Resumé
+      </Fab>
+    </animated.div>
+
+    /*
     <animated.div style={ fadeEffect }>
       <animated.div style={ pulseEffect }>
         <Fab onClick={ handleDownload }
-          // sx={{
-          //   position: 'absolute',
-          //   bottom: '42%',
-          //   left: '50%',
-          //   transform: 'translateX(-50%)',
-          // }}
+          sx={{
+            position: 'absolute',
+            bottom: '42%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }}
           variant='extended'
           color='primary'
           aria-label='Download Resumé'
@@ -51,5 +63,6 @@ export default function Resume({ fadeEffect, pulseEffect }) {
         </Fab>
       </animated.div>
     </animated.div>
+    */
   );
 }

@@ -6,28 +6,11 @@ import { animated } from 'react-spring';
 export default function ScrollToTop({ fabAppear, /* pulseEffect */}) {
 
   const upScroll = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <Zoom in={ fabAppear }>
-      {/* <animated.div style={ pulseEffect }>
-        <Tooltip title='Back to Top' placement='top'>
-          <Fab
-            onClick={ upScroll }
-            sx={{
-              position: 'fixed',
-              bottom: '3.5rem',
-              right: '3.5rem',
-              zIndex: 9999, // NOTE: elevation only controls shadow (illusion of stacking effect)
-            }}
-            color='primary'
-          >
-            <KeyboardDoubleArrowUpIcon />
-          </Fab>
-        </Tooltip>
-      </animated.div> */}
-
       <Tooltip title='Back to Top' placement='top'>
         <Fab
           onClick={ upScroll }

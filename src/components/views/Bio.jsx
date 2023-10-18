@@ -20,7 +20,7 @@ export default function Bio({ centerStyle }) {
         </Box>
 
         <Paper elevation={ 3 }>
-          <Box sx={{ p: 2 }}>
+          <Box sx={{ p: '1.5rem' }}>
             <Typography variant='body1'>
               My journey into tech began during my undergraduate years when my strong fascination with the industry led me to independently explore JavaScript in my free time. This early curiosity ultimately set the stage for my transition into software development. Since then, I've continued to master the craft by adopting best practices and staying current with developments in the field. Notable strides include:
             </Typography>

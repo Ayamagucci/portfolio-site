@@ -71,7 +71,7 @@ export default function Projects({ centerStyle, pulseEffect }) {
         </Box>
 
         <Paper elevation={ 3 }>
-          <Box sx={{ p: 2 }}>
+          <Box sx={{ p: '1.5rem' }}>
             <Box
               alignItems='center'
               sx={{

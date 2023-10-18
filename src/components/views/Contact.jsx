@@ -23,14 +23,14 @@ export default function Contact({ centerStyle, pulseEffect }) {
           Connect with me:
         </Typography>
 
-        <animated.div style={{ ...scaleEffect }}>
+        <animated.div style={ scaleEffect }>
           {/* LINKEDIN */}
           <Link href='https://www.linkedin.com/in/ayamagucci/' target='_blank' color='primary'>
             <LinkedInIcon sx={{ fontSize: '7rem' }} />
           </Link>
 
           {/* GITHUB */}
-          <Link href='https://github.com/Ayamagucci' target='_blank' color='primary' sx={{ mx: 2 }}>
+          <Link href='https://github.com/Ayamagucci' target='_blank' color='primary' sx={{ mx: '1rem' }}>
             <GitHubIcon sx={{ fontSize: '7rem' }} />
           </Link>
 
@@ -41,7 +41,7 @@ export default function Contact({ centerStyle, pulseEffect }) {
         </animated.div>
 
         <Typography variant='h4' sx={{ mt: '1rem' }} color='textPrimary'>
-          Thanks for coming!
+          Thanks for visiting!
         </Typography>
       </Box>
     </Container>
