@@ -7,7 +7,7 @@ export default function Hover({ children, ...props }) {
   const currentRef = useRef(null);
 
   const handleHover = () => {
-    currentRef.current.style.transform = 'scale(1.15)';
+    currentRef.current.style.transform = 'scale(1.2)';
   };
 
   const handleLeave = () => {

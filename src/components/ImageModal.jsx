@@ -4,6 +4,7 @@ import CloseIcon from'@mui/icons-material/Close';
 import FastRewindIcon from '@mui/icons-material/FastRewind';
 import FastForwardIcon from '@mui/icons-material/FastForward';
 import { useSpring, animated } from 'react-spring';
+import Hover from './animations/Hover';
 
 export default function ImageModal({ open, handleClose, url, index, setImageIndex, gifs }) {
 
@@ -60,17 +61,19 @@ export default function ImageModal({ open, handleClose, url, index, setImageInde
               left: '1rem',
               bottom: '50%'
             }}>
-              <Tooltip title='Previous' placement='left'>
-                <animated.div style={ animPrevFab }>
-                  <Fab
-                    onClick={ prevImage }
-                    color='primary'
-                    size='large'
-                  >
-                    <FastRewindIcon />
-                  </Fab>
-                </animated.div>
-              </Tooltip>
+              <Hover>
+                <Tooltip title='Previous' placement='left'>
+                  <animated.div style={ animPrevFab }>
+                    <Fab
+                      onClick={ prevImage }
+                      color='primary'
+                      size='large'
+                    >
+                      <FastRewindIcon />
+                    </Fab>
+                  </animated.div>
+                </Tooltip>
+              </Hover>
             </Box>
 
             <Box sx={{
@@ -78,17 +81,19 @@ export default function ImageModal({ open, handleClose, url, index, setImageInde
               right: '1rem',
               bottom: '50%'
             }}>
-              <Tooltip title='Next' placement='right'>
-                <animated.div style={ animNextFab }>
-                  <Fab
-                    onClick={ nextImage }
-                    color='primary'
-                    size='large'
-                  >
-                    <FastForwardIcon />
-                  </Fab>
-                </animated.div>
-              </Tooltip>
+              <Hover>
+                <Tooltip title='Next' placement='right'>
+                  <animated.div style={ animNextFab }>
+                    <Fab
+                      onClick={ nextImage }
+                      color='primary'
+                      size='large'
+                    >
+                      <FastForwardIcon />
+                    </Fab>
+                  </animated.div>
+                </Tooltip>
+              </Hover>
             </Box>
           </>
         ) }
