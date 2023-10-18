@@ -37,11 +37,11 @@ export default function Projects({ centerStyle, pulseEffect }) {
     <Container id='projects'>
       <Box sx={ centerStyle }>
         <Box
-          sx={{ display: 'flex', mb: '1.5rem' }}
+          sx={{ display: 'flex', /* mb: '1.5rem' */}}
           alignItems='center'
           justifyContent='center'
         >
-          <Tooltip title='Previous' placement='left'>
+          {/* <Tooltip title='Previous' placement='left'>
             <animated.div style={ pulseEffect }>
               <Fab
                 color='primary'
@@ -51,13 +51,13 @@ export default function Projects({ centerStyle, pulseEffect }) {
                 <FastRewindIcon />
               </Fab>
             </animated.div>
-          </Tooltip>
+          </Tooltip> */}
 
           <Typography sx={{ mx: '1rem' }} variant='h2' color='textPrimary'>
             My Projects
           </Typography>
 
-          <Tooltip title='Next' placement='right'>
+          {/* <Tooltip title='Next' placement='right'>
             <animated.div style={ pulseEffect }>
               <Fab
                 color='primary'
@@ -67,62 +67,102 @@ export default function Projects({ centerStyle, pulseEffect }) {
                 <FastForwardIcon />
               </Fab>
             </animated.div>
-          </Tooltip>
+          </Tooltip> */}
         </Box>
 
-        <Paper elevation={ 3 }>
-          <Box sx={{ p: '1.5rem' }}>
-            <Box
-              alignItems='center'
-              sx={{
-                display: 'flex',
-                ml: '0.5rem',
-                mb: '1rem'
-              }}
-            >
-              <Typography variant='h5' sx={{ mr: '2.5rem' }}>
-                <strong>{ title }</strong>
+        <Box
+          sx={{ display: 'flex', mb: '1.5rem' }}
+          alignItems='center'
+          justifyContent='center'
+        >
+          <Typography variant='subtitle1' color='textPrimary'>
+            In the last year, I've been completely immersed in various projects, collaborating with different teams in agile environments. These experiences have not just expanded my technical knowledge but also offered me the chance to test my skills in real-world scenarios, significantly honing my problem-solving & troubleshooting abilities. Plus, I've had the opportunity to dabble in a diverse array of tech ecosystems, equipping me with further tools, platforms, & dev environments, broadening my perspective on available resources & enhancing my adaptability.
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{ display: 'flex' }}
+          alignItems='center'
+          justifyContent='center'
+        >
+          <Tooltip title='Previous' placement='left'>
+            <animated.div style={ pulseEffect }>
+              <Fab
+                color='primary'
+                size='large'
+                onClick={ prevProject }
+              >
+                <FastRewindIcon />
+              </Fab>
+            </animated.div>
+          </Tooltip>
+
+          <Paper sx={{ mx: '1.5rem' }} elevation={ 3 }>
+            <Box sx={{ p: '1.5rem' }}>
+              <Box
+                alignItems='center'
+                sx={{
+                  display: 'flex',
+                  ml: '0.5rem',
+                  mb: '1rem'
+                }}
+              >
+                <Typography variant='h5' sx={{ mr: '2.5rem' }}>
+                  <strong>{ title }</strong>
+                </Typography>
+                <Typography variant='subtitle2' color='textSecondary'>
+                  { year }
+                </Typography>
+              </Box>
+
+              <Typography sx={{ mb: '1rem' }} variant='subtitle1' color='textSecondary'>
+                { description }
               </Typography>
-              <Typography variant='subtitle2' color='textSecondary'>
-                { year }
+              <Typography variant='body2' color='textSecondary' gutterBottom>
+                <strong>Technical Skills:</strong> { skills }
               </Typography>
             </Box>
 
-            <Typography sx={{ mb: '1rem' }} variant='subtitle1' color='textSecondary'>
-              { description }
-            </Typography>
-            <Typography variant='body2' color='textSecondary' gutterBottom>
-              <strong>Technical Skills:</strong> { skills }
-            </Typography>
-          </Box>
+            <Grid container spacing={ 2 }>
+              <ImageList cols={ 3 } rowHeight={ 600 }>
+                { gifs.map((gif, i) => (
+                  <ImageListItem key={ i }>
+                    <img
+                      src={ gif }
+                      alt={ `${ title }: ${ i }` }
+                      onClick={ () => handleOpen(i) }
+                      loading='lazy'
+                      style={{ width: '100%', cursor: 'pointer' }}
+                    />
+                  </ImageListItem>
+                )) }
+              </ImageList>
+            </Grid>
 
-          <Grid container spacing={ 2 }>
-            <ImageList cols={ 3 } rowHeight={ 300 }>
-              { gifs.map((gif, i) => (
-                <ImageListItem key={ i }>
-                  <img
-                    src={ gif }
-                    alt={ `${ title }: ${ i }` }
-                    onClick={ () => handleOpen(i) }
-                    loading='lazy'
-                    style={{ width: '100%', cursor: 'pointer' }}
-                  />
-                </ImageListItem>
-              )) }
-            </ImageList>
-          </Grid>
+            { (open) && (
+              <ImageModal
+                open={ open }
+                handleClose={ handleClose }
+                url={ gifs[imageIndex] }
+                index={ imageIndex }
+                setImageIndex={ setImageIndex }
+                gifs={ gifs }
+              />
+            ) }
+          </Paper>
 
-          { (open) && (
-            <ImageModal
-              open={ open }
-              handleClose={ handleClose }
-              url={ gifs[imageIndex] }
-              index={ imageIndex }
-              setImageIndex={ setImageIndex }
-              gifs={ gifs }
-            />
-          ) }
-        </Paper>
+          <Tooltip title='Next' placement='right'>
+            <animated.div style={ pulseEffect }>
+              <Fab
+                color='primary'
+                size='large'
+                onClick={ nextProject }
+              >
+                <FastForwardIcon />
+              </Fab>
+            </animated.div>
+          </Tooltip>
+        </Box>
       </Box>
     </Container>
   );
