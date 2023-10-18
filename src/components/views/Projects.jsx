@@ -34,7 +34,7 @@ export default function Projects({ centerStyle, pulseEffect }) {
   };
 
   return (
-    <Container id='projects'>
+    <Container id='projects' sx={{ mt: '200px' }}>
       <Box sx={ centerStyle }>
         <Box
           sx={{ display: 'flex', /* mb: '1.5rem' */}}
@@ -53,7 +53,7 @@ export default function Projects({ centerStyle, pulseEffect }) {
             </animated.div>
           </Tooltip> */}
 
-          <Typography sx={{ mx: '1rem' }} variant='h2' color='textPrimary'>
+          <Typography sx={{/* mx: '1rem', */ mb: '0.5rem' }} variant='h2' color='textPrimary'>
             My Projects
           </Typography>
 
@@ -71,7 +71,7 @@ export default function Projects({ centerStyle, pulseEffect }) {
         </Box>
 
         <Box
-          sx={{ display: 'flex', mb: '1.5rem' }}
+          sx={{ display: 'flex', mb: '1rem' }}
           alignItems='center'
           justifyContent='center'
         >

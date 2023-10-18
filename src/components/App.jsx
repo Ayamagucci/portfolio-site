@@ -42,20 +42,6 @@ export default function App({ darkMode, toggleDarkMode }) {
   const [ elevation, setElevation ] = useState(0);
   const [ fabAppear, setFabAppear ] = useState(false);
 
-  /* handler for Nav & DownScroll
-  const scrollToSection = (sectionID) => {
-    const elem = document.getElementById(sectionID);
-
-    if (elem) {
-      elem.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      });
-    }
-  };
-  */
-
   const [ currentSection, setCurrentSection ] = useState('landing');
   const [ maxScroll, setMaxScroll ] = useState(0);
 
