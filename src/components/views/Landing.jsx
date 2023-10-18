@@ -23,7 +23,7 @@ export default function Landing({ centerStyle, pulseEffect }) {
   return (
     <Container id='landing'>
       <Box sx={ centerStyle }>
-        <Typography variant='h1' color='textPrimary'>
+        <Typography variant='h1' color='textPrimary' sx={{ mb: '1.5rem' }}>
           <strong>
             { trailIntro.map((props, i) => (
               <animated.span style={{ ...props }} key={ i }>

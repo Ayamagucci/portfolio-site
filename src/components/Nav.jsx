@@ -63,12 +63,12 @@ export default function Nav({ elevation, darkMode, toggleDarkMode }) {
           </Hover>
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant='body2' sx={{ mr: '0.5rem', color: theme.palette.background.paper }}>
-            { darkMode ? 'DARK' : 'LIGHT' }
-          </Typography>
+        <Hover>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Typography variant='body2' sx={{ mr: '0.5rem', color: theme.palette.background.paper }}>
+              { darkMode ? 'DARK' : 'LIGHT' }
+            </Typography>
 
-          <Hover>
             <Switch
               name='light-switch'
               checked={ darkMode }
@@ -87,8 +87,8 @@ export default function Nav({ elevation, darkMode, toggleDarkMode }) {
             ) : (
               <Brightness4Icon sx={{ color: theme.palette.background.paper }} />
             ) }
-          </Hover>
-        </Box>
+          </Box>
+        </Hover>
       </Toolbar>
     </AppBar>
   );
